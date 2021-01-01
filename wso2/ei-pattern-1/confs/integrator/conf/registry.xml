@@ -128,7 +128,7 @@
     <versioningTags>true</versioningTags>
     <versioningRatings>true</versioningRatings>
   </staticConfiguration>
-
+<!--
   <dbConfig name="wso2config">
     <dataSource>jdbc/WSO2ConfigDB</dataSource>
   </dbConfig>
@@ -147,5 +147,5 @@
   <mount path="/_system/governance" overwrite="true">
     <instanceId>wso2config</instanceId>
     <targetPath>/_system/governance/integrator</targetPath>
-  </mount>
+  </mount> -->
 </wso2registry>
