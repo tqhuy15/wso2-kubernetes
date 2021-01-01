@@ -29,10 +29,13 @@ spec:
     - name: http
       port: 8280
       targetPort: 8280
+      nodePort: 30080
     - name: https
       port: 8243
       targetPort: 8243
+      nodePort: 30043
     - name: carbon
       port: 9443
       targetPort: 9443
+      nodePort: 30443
 
