@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backendsvc
+spec:
+  replicas: 1
+  # thiết lập các POD do deploy quản lý, là POD có nhãn  "app=deployapp"
+  selector:
+    matchLabels:
+      app: backendsvc
+
+  # Định nghĩa mẫu POD, khi cần Deploy sử dụng mẫu này để tạo Pod
+  template:
+    metadata:
+      name: backendsvc
+      labels:
+        app: backendsvc
+    spec:
+      containers:
+        - name: backend-service
+          image: qhuy1551/backendsvc
+          command: ["/bin/sh","-c"]
+          args: ["java -jar Hospital-Service-JDK11-2.0.0.jar"]
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 9090
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+     app: backendsvc
+  clusterIP: None
+  type: ClusterIP
+  sessionAffinity: None
+  ports:
+    - name: endpoint-port
+      port: 9090
