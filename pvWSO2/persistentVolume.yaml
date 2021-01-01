@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv2
+spec:
+  storageClassName: mystorageclass
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: "/home/haproxy/data/repository/deployment/server/carbonapps"
+    server: "192.168.1.48"
