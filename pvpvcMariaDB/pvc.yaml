@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: mariadb
+  name: data-mariadbtest-mariadb-galera-0
+  namespace: default
+spec:
+  storageClassName: mystorageclass0
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: mariadb
+  name: data-mariadbtest-mariadb-galera-1
+  namespace: default
+spec:
+  storageClassName: mystorageclass1
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: mariadb
+  name: data-mariadbtest-mariadb-galera-2
+  namespace: default
+spec:
+  storageClassName: mystorageclass2
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
